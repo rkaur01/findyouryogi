@@ -21,7 +21,7 @@ module.exports = router
 const googleConfig = {
   clientID: process.env.GOOGLE_CLIENT_ID,
   clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-  callbackURL: process.env.GOOGLE_CALLBACK
+  callbackURL: '/auth/google/callback'
 }
 
 const strategy = new GoogleStrategy(googleConfig, (token, refreshToken, profile, done) => {
