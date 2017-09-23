@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
 import {NavLink} from 'react-router-dom'
-import store,{fetchYogis} from '../store'
+import store from '../store'
 require('../../secrets')
 const Clarifai = require('clarifai')
 
@@ -16,7 +16,7 @@ const app = new Clarifai.App({
 export class AllYogis extends Component {
   constructor(props) {
     super(props)
-
+    
     this.state = {
       yogis: [],
       filter: 'people'
@@ -41,9 +41,11 @@ export class AllYogis extends Component {
             
           }
         })
-        console.log('new yogi list', newYogiList)
+        console.log('new yogi list needs to be my new state', newYogiList)
         
+        //SET STATE IS NOT CHANGING,...THE ROOT OF MY PROBLEM IS HERE
         this.setState({yogis: newYogiList})
+        
         
       },
       function(err) {
@@ -52,19 +54,17 @@ export class AllYogis extends Component {
     )
   }
 
-  componentDidMount(){
-    if(!this.state.yogis) this.setState({yogis: this.props.yogis})
-    console.log(this.state.yogis)
-    store.dispatch(fetchYogis())
-    console.log('props', this.props.yogis)
-    console.log('state', this.state.yogis)
-  }
+  // componentDidMount(){
+  //   console.log('what are props', this.props.yogis)
+  //   this.setState({yogis: this.props.yogis})
+  // }
+
 
   render(){
     const {yogis} = this.props
-    if(!this.state.yogis) this.setState({yogis: yogis})
+    if(!this.state.yogis && yogis.length) this.setState({yogis: yogis})
     let yogiList = this.state.yogis.length ? this.state.yogis : yogis 
-    console.log('hope this works', yogiList)
+    console.log('state is not changing, this should be equal to newYogiList ', yogiList)
     return (
       <div>
         <form onSubmit= {(evt) => {
@@ -99,7 +99,13 @@ export class AllYogis extends Component {
 /**
  * CONTAINER
  */
-const mapState = ({yogis}) => ({yogis})
+//const mapState = ({yogis}) => ({yogis})
+const mapState = (state) => {
+  console.log('mapState takes in this state', state)
+  return {
+      yogis: state.yogis
+  }
+}
 
 export default connect(mapState)(AllYogis)
 

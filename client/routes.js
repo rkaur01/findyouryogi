@@ -12,7 +12,7 @@ import store, {me, fetchYogis} from './store'
 class Routes extends Component {
   componentDidMount () {
     this.props.loadInitialData()
-    store.dispatch(fetchYogis())
+    this.props.getAllYogis()
   }
 
   render () {
@@ -59,6 +59,9 @@ const mapDispatch = (dispatch) => {
   return {
     loadInitialData () {
       dispatch(me())
+    },
+    getAllYogis () {
+      dispatch(fetchYogis())
     }
   }
 }
