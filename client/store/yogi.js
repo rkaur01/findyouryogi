@@ -19,9 +19,9 @@ export default function reducer (yogis = [], action) {
   switch (action.type){
     
     case INITIALIZE:
-      return action.yogis
+      return [...action.yogis]
 
     default:
-      return yogis    
+      return [...yogis]    
   }
 }  

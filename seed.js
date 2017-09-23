@@ -1,44 +1,42 @@
 const db = require('./server/db')
+const server = require('./server')
 const Yogi = require('./server/db/models/yogi')
 
 const yogis = [
   {
-    name: 'Kevin Tobar',
+    name: 'Minimal Studio',
     quote: 'Namaste',
-    email: 'kevin@email.com',
-    location: 'NYC',
-    difficulty: 'beginner',
-    costPerClass: 22
-  },
-  {
-    name: 'Jes Allen',
-    quote: 'Namaste',
-    email: 'jes@email.com',
+    email: 'deepika@email.com',
     location: 'NYC',
     difficulty: 'beginner-intermediate',
-    costPerClass: 22
+    costPerClass: 22,
+    imageUrl: '/img/whiteyogastudio.jpg',
+    clarifaiId: 'd08b2ce0177141c4b7b0e189ef9faf05'
   },
   {
-    name: 'Erin Kelly',
+    name: 'The Forest',
     quote: 'Namaste',
     email: 'erin@email.com',
     location: 'Costa Rica',
     difficulty: 'advanced',
-    costPerClass: 32
+    costPerClass: 32,
+    imageUrl: '/img/natureyogastudio.jpg',  
+    clarifaiId: 'ccf65fe7ec4843689dc33a0adc7fa84f'
   },
   {
-    name: 'Martina Rando',
+    name: 'Vibrant',
     quote: 'Namaste',
     email: 'martina@email.com',
     location: 'Milan',
     difficulty: 'intermediate',
-    costPerClass: 42
+    costPerClass: 42,
+    imageUrl: '/img/vibrantyogastudio.jpg',
+    clarifaiId: 'faacb65827b54ea7887cc5047349268a'       
   }
 ]
 
 const seed = () => {
-  return Promise.all(yogis.map(yogi =>
-    Yogi.create(yogi))
+  return Promise.all(yogis.map(yogi => Yogi.create(yogi))
   )
 }
 
@@ -56,6 +54,7 @@ const main = () => {
     })
     .then(() => {
       db.close()
+      console.log('BYE')
       return null
     });
 };

@@ -23,6 +23,12 @@ const Yogi = db.define('yogi', {
   },
   costPerClass: {
     type: Sequelize.INTEGER
+  },
+  imageUrl: {
+    type: Sequelize.STRING
+  },
+  clarifaiId: {
+    type: Sequelize.STRING
   }
 })
 

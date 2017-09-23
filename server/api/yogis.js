@@ -7,3 +7,4 @@ router.get('/', (req, res, next) => {
     .then(yogis => res.json(yogis))
     .catch(next)
 })
+
