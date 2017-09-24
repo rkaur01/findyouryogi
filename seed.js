@@ -41,7 +41,7 @@ const yogis = [
     difficulty: 'intermediate',
     costPerClass: 42,
     imageUrl: '/img/bendbloomparkyoga.jpg',
-    clarifaiId: ''       
+    clarifaiId: 'cec222d3e1cd4523b0a069de91259010'       
   },
   {
     name: 'Bija Yoga',
@@ -51,7 +51,7 @@ const yogis = [
     difficulty: 'intermediate',
     costPerClass: 42,
     imageUrl: '/img/bija_yoga.png',
-    clarifaiId: ''       
+    clarifaiId: 'b0263a4ae8e447bdbf95aecc429145ea'       
   },
   {
     name: 'Exhale Yoga',
@@ -61,7 +61,7 @@ const yogis = [
     difficulty: 'intermediate',
     costPerClass: 42,
     imageUrl: '/img/exhale_gramercy.png',
-    clarifaiId: ''       
+    clarifaiId: 'e9af1ee4a72d4ad6897a0e1c052f213a'       
   },
   {
     name: 'Greenhouse Holistic',
@@ -71,7 +71,7 @@ const yogis = [
     difficulty: 'intermediate',
     costPerClass: 42,
     imageUrl: '/img/greenhouse-holistic.jpg',
-    clarifaiId: ''       
+    clarifaiId: 'e78e6f2320244205a4c463270994c0c5'       
   },
   {
     name: 'Iyengar Yoga Institute',
@@ -81,7 +81,7 @@ const yogis = [
     difficulty: 'intermediate',
     costPerClass: 42,
     imageUrl: '/img/iyengar-yoga-institute.jpg',
-    clarifaiId: ''       
+    clarifaiId: 'edbb9a30a3644e82ae0a7384e1f22e82'       
   },
   {
     name: 'Laughing Lotus Yoga',
@@ -91,7 +91,7 @@ const yogis = [
     difficulty: 'intermediate',
     costPerClass: 42,
     imageUrl: '/img/laughing-lotus-yoga-main.jpg',
-    clarifaiId: ''       
+    clarifaiId: 'f36a1c4c2303479ba765bc9060a767d6'       
   },
   {
     name: 'Modo Yoga',
@@ -101,7 +101,7 @@ const yogis = [
     difficulty: 'intermediate',
     costPerClass: 42,
     imageUrl: '/img/modo_yoga.jpg',
-    clarifaiId: ''       
+    clarifaiId: 'be5c93fec8344186ae2da5e104c73d33'       
   },
   {
     name: 'Pure Yoga',
@@ -111,7 +111,7 @@ const yogis = [
     difficulty: 'intermediate',
     costPerClass: 42,
     imageUrl: '/img/Pure-Yoga.jpg',
-    clarifaiId: ''       
+    clarifaiId: 'a7a8e09b3ff84eb697897f6b1e9b6d8d'       
   },
   {
     name: 'Spot Yoga',
@@ -121,7 +121,7 @@ const yogis = [
     difficulty: 'intermediate',
     costPerClass: 42,
     imageUrl: '/img/spotyoga.jpg',
-    clarifaiId: ''       
+    clarifaiId: 'a73458c383604a8cab486f5e74e9d5b5'       
   },
   {
     name: 'Y7 Yoga',
@@ -131,7 +131,7 @@ const yogis = [
     difficulty: 'intermediate',
     costPerClass: 42,
     imageUrl: '/img/y7-Studio.jpg',
-    clarifaiId: ''       
+    clarifaiId: 'c5827528d4914af49ecea709808194eb'       
   },
   {
     name: 'Yoga Vida',
@@ -141,7 +141,7 @@ const yogis = [
     difficulty: 'intermediate',
     costPerClass: 42,
     imageUrl: '/img/yoga-vida.jpg',
-    clarifaiId: ''       
+    clarifaiId: 'caf69562460443e585ac3e6ba11f1fd6'       
   },
   {
     name: 'Dharma Yoga',
@@ -151,7 +151,7 @@ const yogis = [
     difficulty: 'intermediate',
     costPerClass: 42,
     imageUrl: '/img/dharma_yoga.jpg',
-    clarifaiId: ''       
+    clarifaiId: 'e337cc06cb624dee9f57671979d045a0'       
   }
 ]
 
