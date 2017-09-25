@@ -58,6 +58,9 @@ export class AllYogis extends Component {
   //   console.log('what are props', this.props.yogis)
   //   this.setState({yogis: this.props.yogis})
   // }
+  componentWillUpdate(nextProps, nextState){
+    console.log('what is state after update', nextState.yogis)
+  }
 
 
   render(){
@@ -80,7 +83,8 @@ export class AllYogis extends Component {
 
 
     const {yogis} = this.props
-    if(!this.state.yogis && yogis.length) this.setState({yogis: yogis})
+    //if(!this.state.yogis && yogis.length) this.setState({yogis: yogis})
+    console.log('what is state', this.state.yogis)
     let yogiList = this.state.yogis.length ? this.state.yogis : yogis 
     console.log('state is not changing, this should be equal to newYogiList ', yogiList)
     return (
@@ -124,7 +128,6 @@ export class AllYogis extends Component {
  */
 //const mapState = ({yogis}) => ({yogis})
 const mapState = (state) => {
-  console.log('mapState takes in this state', state)
   return {
       yogis: state.yogis
   }

@@ -5102,6 +5102,18 @@ Object.keys(_yogi).forEach(function (key) {
   });
 });
 
+var _filteryogi = __webpack_require__(405);
+
+Object.keys(_filteryogi).forEach(function (key) {
+  if (key === "default" || key === "__esModule") return;
+  Object.defineProperty(exports, key, {
+    enumerable: true,
+    get: function get() {
+      return _filteryogi[key];
+    }
+  });
+});
+
 var _redux = __webpack_require__(158);
 
 var _reduxLogger = __webpack_require__(390);
@@ -5116,9 +5128,11 @@ var _user2 = _interopRequireDefault(_user);
 
 var _yogi2 = _interopRequireDefault(_yogi);
 
+var _filteryogi2 = _interopRequireDefault(_filteryogi);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var reducer = (0, _redux.combineReducers)({ user: _user2.default, yogis: _yogi2.default });
+var reducer = (0, _redux.combineReducers)({ user: _user2.default, yogis: _yogi2.default, filteryogi: _filteryogi2.default });
 var middleware = (0, _redux.applyMiddleware)(_reduxThunk2.default, (0, _reduxLogger2.default)({ collapsed: true }));
 var store = (0, _redux.createStore)(reducer, middleware);
 
@@ -20584,15 +20598,18 @@ var AllYogis = exports.AllYogis = function (_Component) {
   }
 
   _createClass(AllYogis, [{
-    key: 'render',
+    key: 'componentWillUpdate',
 
 
     // componentDidMount(){
     //   console.log('what are props', this.props.yogis)
     //   this.setState({yogis: this.props.yogis})
     // }
-
-
+    value: function componentWillUpdate(nextProps, nextState) {
+      console.log('what is state after update', nextState.yogis);
+    }
+  }, {
+    key: 'render',
     value: function render() {
       var _this2 = this;
 
@@ -20612,8 +20629,9 @@ var AllYogis = exports.AllYogis = function (_Component) {
       };
 
       var yogis = this.props.yogis;
+      //if(!this.state.yogis && yogis.length) this.setState({yogis: yogis})
 
-      if (!this.state.yogis && yogis.length) this.setState({ yogis: yogis });
+      console.log('what is state', this.state.yogis);
       var yogiList = this.state.yogis.length ? this.state.yogis : yogis;
       console.log('state is not changing, this should be equal to newYogiList ', yogiList);
       return _react2.default.createElement(
@@ -20674,7 +20692,6 @@ var AllYogis = exports.AllYogis = function (_Component) {
 
 
 var mapState = function mapState(state) {
-  console.log('mapState takes in this state', state);
   return {
     yogis: state.yogis
   };
@@ -21049,6 +21066,20 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
  * COMPONENT
  */
 var SingleYogi = exports.SingleYogi = function SingleYogi(props) {
+  //styles
+  var imgStyle = {
+    height: 450,
+    width: 600
+  };
+
+  var iFrameStyle = {
+    width: 500,
+    height: 500,
+    display: 'block',
+    textAlign: 'center',
+    margin: 'auto'
+  };
+
   var yogi = props.yogi;
 
 
@@ -21063,7 +21094,7 @@ var SingleYogi = exports.SingleYogi = function SingleYogi(props) {
         null,
         yogi.name
       ),
-      _react2.default.createElement('img', { className: 'singleYogi', src: yogi.imageUrl }),
+      _react2.default.createElement('img', { style: imgStyle, src: yogi.imageUrl }),
       _react2.default.createElement(
         'p',
         null,
@@ -21088,7 +21119,12 @@ var SingleYogi = exports.SingleYogi = function SingleYogi(props) {
         yogi.costPerClass,
         '.00 per class'
       ),
-      _react2.default.createElement(_reactIframe2.default, { url: 'https://open.spotify.com/embed?uri=spotify:user:rkohr:playlist:26RcfKekMN41fKgTW0D5Hx', width: '300', height: '380', frameborder: '0', allowtransparency: 'true' })
+      _react2.default.createElement(
+        'p',
+        null,
+        'Studio Playlist: ',
+        _react2.default.createElement(_reactIframe2.default, { style: iFrameStyle, url: 'https://open.spotify.com/embed?uri=spotify:user:rkohr:playlist:26RcfKekMN41fKgTW0D5Hx', width: '300', height: '380', frameborder: '0', allowtransparency: 'true' })
+      )
     )
   );
 };
@@ -44061,6 +44097,53 @@ function toArray(list, index) {
 /***/ (function(module, exports) {
 
 /* (ignored) */
+
+/***/ }),
+/* 405 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = reducer;
+
+var _axios = __webpack_require__(90);
+
+var _axios2 = _interopRequireDefault(_axios);
+
+var _history = __webpack_require__(58);
+
+var _history2 = _interopRequireDefault(_history);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
+
+//ACTION TYPES
+var FILTER_YOGIS = 'FILTER_YOGIS';
+
+//ACTION CREATORS
+var filter = function filter(yogis) {
+  return { type: FILTER_YOGIS, yogis: yogis };
+};
+
+//REDUCER
+function reducer() {
+  var yogis = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
+  var action = arguments[1];
+
+  switch (action.type) {
+
+    case FILTER_YOGIS:
+      return [].concat(_toConsumableArray(action.yogis));
+
+    default:
+      return [].concat(_toConsumableArray(yogis));
+  }
+}
 
 /***/ })
 /******/ ]);

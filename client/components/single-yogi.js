@@ -7,6 +7,20 @@ import Iframe from 'react-iframe'
  * COMPONENT
  */
 export const SingleYogi = (props) => {
+  //styles
+  let imgStyle = {
+    height: 450,
+    width: 600
+  }
+
+  let iFrameStyle = {
+    width: 500,
+    height: 500,
+    display: 'block',
+    textAlign: 'center',
+    margin: 'auto'
+  }
+
   const {yogi} = props
 
   return (
@@ -14,12 +28,12 @@ export const SingleYogi = (props) => {
       {Object.keys(yogi) &&
         <div>
           <h3>{yogi.name}</h3>
-          <img className="singleYogi" src ={yogi.imageUrl}/>
+          <img style={imgStyle} src ={yogi.imageUrl}/>
           <p>{yogi.quote}</p>
           <p>Currently in: {yogi.location}</p>
           <p>Class difficulty: {yogi.difficulty}</p>
           <p>Average Cost: ${yogi.costPerClass}.00 per class</p>
-          <Iframe url="https://open.spotify.com/embed?uri=spotify:user:rkohr:playlist:26RcfKekMN41fKgTW0D5Hx" width="300" height="380" frameborder="0" allowtransparency="true" />
+          <p>Studio Playlist: <Iframe style={iFrameStyle} url="https://open.spotify.com/embed?uri=spotify:user:rkohr:playlist:26RcfKekMN41fKgTW0D5Hx" width="300" height="380" frameborder="0" allowtransparency="true" /></p>
         </div>
       }
     </div>
