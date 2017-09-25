@@ -33,3 +33,5 @@ const Yogi = db.define('yogi', {
 })
 
 module.exports = Yogi
+
+//didnt have time to change, assume yogis is yogaStudios
