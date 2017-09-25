@@ -91,5 +91,3 @@ if (require.main === module) {
 }
 
 module.exports = app
-
-//didnt have time to change, assume yogis is yogaStudios

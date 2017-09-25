@@ -8,4 +8,3 @@ router.get('/', (req, res, next) => {
     .catch(next)
 })
 
-//didnt have time to change, assume yogis is yogaStudios
