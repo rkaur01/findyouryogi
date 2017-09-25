@@ -21,19 +21,24 @@ export const SingleYogi = (props) => {
     margin: 'auto'
   }
 
+  let mainDivStyle = {
+    backgroundColor:'#dbe8ff',
+    paddingTop: .15
+  }
+
   const {yogi} = props
 
   return (
-    <div>
+    <div style = {mainDivStyle}>
       {Object.keys(yogi) &&
         <div>
-          <h3>{yogi.name}</h3>
+          <h3 style={{color: '#41b5f4'}}>{yogi.name}</h3>
           <img style={imgStyle} src ={yogi.imageUrl}/>
           <p>{yogi.quote}</p>
           <p>Currently in: {yogi.location}</p>
           <p>Class difficulty: {yogi.difficulty}</p>
           <p>Average Cost: ${yogi.costPerClass}.00 per class</p>
-          <p>Studio Playlist: <Iframe style={iFrameStyle} url="https://open.spotify.com/embed?uri=spotify:user:rkohr:playlist:26RcfKekMN41fKgTW0D5Hx" width="300" height="380" frameborder="0" allowtransparency="true" /></p>
+          <p>Studio Playlist: <Iframe style= {iFrameStyle} url="https://open.spotify.com/embed?uri=spotify:user:rkohr:playlist:26RcfKekMN41fKgTW0D5Hx" width="300" height="380" frameborder="0" allowtransparency="true" /></p>
         </div>
       }
     </div>

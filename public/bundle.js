@@ -20573,7 +20573,7 @@ var AllYogis = exports.AllYogis = function (_Component) {
 
     _this.state = {
       yogis: [],
-      filter: 'type here..'
+      filter: ''
     };
 
     return _this;
@@ -20599,26 +20599,40 @@ var AllYogis = exports.AllYogis = function (_Component) {
         color: '#41b5f4'
       };
 
+      var mainDivStyle = {
+        backgroundColor: '#dbe8ff',
+        paddingTop: 20,
+        color: '#4286f4',
+        fontSize: 20,
+        fontFamily: 'Trebuchet MS'
+      };
+
       var yogis = this.props.yogis;
 
       var yogiList = this.state.yogis.length ? this.state.yogis : yogis;
       return _react2.default.createElement(
         'div',
-        { className: 'container-fluid' },
+        { className: 'container-fluid', style: mainDivStyle },
         _react2.default.createElement(
           'form',
           { onSubmit: function onSubmit(evt) {
               evt.preventDefault();
               _this2.handleSubmit();
             } },
+          'I want a studio that is or has a...',
           _react2.default.createElement('input', {
             type: 'text',
-            style: { height: 40, borderColor: 'gray', borderWidth: 1 },
+            style: { height: 40, borderColor: 'gray', borderWidth: 1, marginLeft: 10 },
             onChange: function onChange(filter) {
               return _this2.setState({ filter: filter.target.value });
             },
             value: this.state.filter
-          })
+          }),
+          _react2.default.createElement(
+            'button',
+            { type: 'submit', className: 'btn-primary', style: { marginLeft: 10, borderRadius: 5 } },
+            'FILTER'
+          )
         ),
         _react2.default.createElement(
           'h3',
@@ -20921,9 +20935,15 @@ var Main = function Main(props) {
       isLoggedIn = props.isLoggedIn;
 
 
+  var mainDivStyle = {
+    backgroundColor: '#dbe8ff',
+    paddingTop: .15,
+    textAlign: "center",
+    fontFamily: 'Trebuchet MS'
+  };
   return _react2.default.createElement(
     'div',
-    { style: { textAlign: "center" } },
+    { style: mainDivStyle },
     _react2.default.createElement(
       _reactRouterDom.Link,
       { to: '/' },
@@ -21046,18 +21066,23 @@ var SingleYogi = exports.SingleYogi = function SingleYogi(props) {
     margin: 'auto'
   };
 
+  var mainDivStyle = {
+    backgroundColor: '#dbe8ff',
+    paddingTop: .15
+  };
+
   var yogi = props.yogi;
 
 
   return _react2.default.createElement(
     'div',
-    null,
+    { style: mainDivStyle },
     Object.keys(yogi) && _react2.default.createElement(
       'div',
       null,
       _react2.default.createElement(
         'h3',
-        null,
+        { style: { color: '#41b5f4' } },
         yogi.name
       ),
       _react2.default.createElement('img', { style: imgStyle, src: yogi.imageUrl }),

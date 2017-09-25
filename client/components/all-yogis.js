@@ -19,7 +19,7 @@ export class AllYogis extends Component {
     
     this.state = {
       yogis: [],
-      filter: 'type here..'
+      filter: ''
     }
 
   }
@@ -65,22 +65,32 @@ export class AllYogis extends Component {
       color: '#41b5f4'
     }
 
+    let mainDivStyle = {
+      backgroundColor:'#dbe8ff',
+      paddingTop: 20,
+      color: '#4286f4',
+      fontSize: 20,
+      fontFamily: 'Trebuchet MS'
+    }
+
 
 
     const {yogis} = this.props
     let yogiList = this.state.yogis.length ? this.state.yogis : yogis 
     return (
-      <div className="container-fluid">
+      <div className="container-fluid" style={mainDivStyle}>
         <form onSubmit= {(evt) => {
           evt.preventDefault()
           this.handleSubmit()
         }}>
+          I want a studio that is or has a...
           <input 
             type="text"
-            style={{height: 40, borderColor: 'gray', borderWidth: 1}}
+            style={{height: 40, borderColor: 'gray', borderWidth: 1, marginLeft:10}}
             onChange={(filter) => this.setState({filter:filter.target.value})}
             value={this.state.filter}
           />
+          <button type='submit' className="btn-primary" style={{marginLeft:10, borderRadius:5}}>FILTER</button>
           </form>
         <h3 style={{textAlign: 'center', color: "#4286f4"}}>FEATURING</h3>
         <div className="row">

@@ -12,9 +12,15 @@ import {logout} from '../store'
  */
 const Main = (props) => {
   const {children, handleClick, isLoggedIn} = props
-
+  
+  let mainDivStyle = {
+    backgroundColor:'#dbe8ff',
+    paddingTop: .15,
+    textAlign: "center",
+    fontFamily: 'Trebuchet MS'
+  }
   return (
-    <div style={{textAlign: "center"}}>
+    <div style={mainDivStyle}>
       <Link to='/'><h1 style={{color: "#4286f4"}}>FIND YOUR YOGA STUDIO</h1></Link>
       <nav>
         {
