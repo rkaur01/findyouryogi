@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
 import {NavLink} from 'react-router-dom'
-import store from '../store'
+import {filteryogi} from '../store'
 require('../../secrets')
 const Clarifai = require('clarifai')
 
@@ -27,7 +27,7 @@ export class AllYogis extends Component {
   handleSubmit = () => {
     let oldList = [...this.props.yogis]
     app.inputs.search({ concept: {name: this.state.filter} }).then(
-      function(response) {
+      (response) => {
         let hitArr = []
         
         response.hits.forEach(hit => {
@@ -41,25 +41,14 @@ export class AllYogis extends Component {
             
           }
         })
-        console.log('new yogi list needs to be my new state', newYogiList)
         
-        //SET STATE IS NOT CHANGING,...THE ROOT OF MY PROBLEM IS HERE
-        this.setState({yogis: newYogiList})
+        this.setState({yogis:newYogiList})
         
         
-      },
-      function(err) {
-        console.error(err)
+        
       }
     )
-  }
-
-  // componentDidMount(){
-  //   console.log('what are props', this.props.yogis)
-  //   this.setState({yogis: this.props.yogis})
-  // }
-  componentWillUpdate(nextProps, nextState){
-    console.log('what is state after update', nextState.yogis)
+    .catch(err => console.log(err))
   }
 
 
@@ -81,14 +70,10 @@ export class AllYogis extends Component {
 
 
 
-
     const {yogis} = this.props
-    //if(!this.state.yogis && yogis.length) this.setState({yogis: yogis})
-    console.log('what is state', this.state.yogis)
     let yogiList = this.state.yogis.length ? this.state.yogis : yogis 
-    console.log('state is not changing, this should be equal to newYogiList ', yogiList)
     return (
-      <div class="container-fluid">
+      <div className="container-fluid">
         <form onSubmit= {(evt) => {
           evt.preventDefault()
           this.handleSubmit()
@@ -126,7 +111,7 @@ export class AllYogis extends Component {
 /**
  * CONTAINER
  */
-//const mapState = ({yogis}) => ({yogis})
+
 const mapState = (state) => {
   return {
       yogis: state.yogis
