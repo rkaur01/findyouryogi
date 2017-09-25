@@ -21069,7 +21069,8 @@ var SingleYogi = exports.SingleYogi = function SingleYogi(props) {
   var mainDivStyle = {
     backgroundColor: '#dbe8ff',
     paddingTop: .15,
-    color: '#4286f4'
+    color: '#4286f4',
+    paddingBottom: 25
   };
 
   var yogi = props.yogi;
@@ -21114,9 +21115,9 @@ var SingleYogi = exports.SingleYogi = function SingleYogi(props) {
       _react2.default.createElement(
         'p',
         null,
-        'Studio Playlist: ',
-        _react2.default.createElement(_reactIframe2.default, { url: 'https://open.spotify.com/embed?uri=spotify:user:rkohr:playlist:26RcfKekMN41fKgTW0D5Hx', width: '450px', height: '450px', frameborder: '0', allowtransparency: 'true', display: 'initial', position: 'relative' })
-      )
+        'Studio Playlist:'
+      ),
+      _react2.default.createElement(_reactIframe2.default, { url: 'https://open.spotify.com/embed?uri=spotify:user:rkohr:playlist:26RcfKekMN41fKgTW0D5Hx', width: '450px', height: '450px', frameborder: '0', allowtransparency: 'true', display: 'initial', position: 'relative' })
     )
   );
 };
