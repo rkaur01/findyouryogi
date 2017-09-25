@@ -17,11 +17,12 @@ const Main = (props) => {
     backgroundColor:'#dbe8ff',
     paddingTop: .15,
     textAlign: "center",
-    fontFamily: 'Trebuchet MS'
+    fontFamily: 'Trebuchet MS',
+    height: '100vh'
   }
   return (
     <div style={mainDivStyle}>
-      <Link to='/'><h1 style={{color: "#4286f4"}}>FIND YOUR YOGA STUDIO</h1></Link>
+      <Link to='/'><h1 style={{color: "#4286f4", textDecoration: "none"}}>FIND YOUR YOGA STUDIO</h1></Link>
       <nav>
         {
           isLoggedIn

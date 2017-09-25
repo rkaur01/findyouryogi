@@ -14,16 +14,16 @@ export const SingleYogi = (props) => {
   }
 
   let iFrameStyle = {
-    width: 500,
-    height: 500,
-    display: 'block',
-    textAlign: 'center',
-    margin: 'auto'
+    width:"450",
+    height:"450",
+    display:"initial",
+    position:"relative"
   }
 
   let mainDivStyle = {
     backgroundColor:'#dbe8ff',
-    paddingTop: .15
+    paddingTop: .15,
+    color: '#4286f4'
   }
 
   const {yogi} = props
@@ -38,7 +38,7 @@ export const SingleYogi = (props) => {
           <p>Currently in: {yogi.location}</p>
           <p>Class difficulty: {yogi.difficulty}</p>
           <p>Average Cost: ${yogi.costPerClass}.00 per class</p>
-          <p>Studio Playlist: <Iframe style= {iFrameStyle} url="https://open.spotify.com/embed?uri=spotify:user:rkohr:playlist:26RcfKekMN41fKgTW0D5Hx" width="300" height="380" frameborder="0" allowtransparency="true" /></p>
+          <p>Studio Playlist: <Iframe url="https://open.spotify.com/embed?uri=spotify:user:rkohr:playlist:26RcfKekMN41fKgTW0D5Hx" width="450px" height="450px" frameborder="0" allowtransparency="true" display="initial" position="relative"/></p>
         </div>
       }
     </div>

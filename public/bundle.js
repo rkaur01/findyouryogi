@@ -20939,7 +20939,8 @@ var Main = function Main(props) {
     backgroundColor: '#dbe8ff',
     paddingTop: .15,
     textAlign: "center",
-    fontFamily: 'Trebuchet MS'
+    fontFamily: 'Trebuchet MS',
+    height: '100vh'
   };
   return _react2.default.createElement(
     'div',
@@ -20949,7 +20950,7 @@ var Main = function Main(props) {
       { to: '/' },
       _react2.default.createElement(
         'h1',
-        { style: { color: "#4286f4" } },
+        { style: { color: "#4286f4", textDecoration: "none" } },
         'FIND YOUR YOGA STUDIO'
       )
     ),
@@ -21059,16 +21060,16 @@ var SingleYogi = exports.SingleYogi = function SingleYogi(props) {
   };
 
   var iFrameStyle = {
-    width: 500,
-    height: 500,
-    display: 'block',
-    textAlign: 'center',
-    margin: 'auto'
+    width: "450",
+    height: "450",
+    display: "initial",
+    position: "relative"
   };
 
   var mainDivStyle = {
     backgroundColor: '#dbe8ff',
-    paddingTop: .15
+    paddingTop: .15,
+    color: '#4286f4'
   };
 
   var yogi = props.yogi;
@@ -21114,7 +21115,7 @@ var SingleYogi = exports.SingleYogi = function SingleYogi(props) {
         'p',
         null,
         'Studio Playlist: ',
-        _react2.default.createElement(_reactIframe2.default, { style: iFrameStyle, url: 'https://open.spotify.com/embed?uri=spotify:user:rkohr:playlist:26RcfKekMN41fKgTW0D5Hx', width: '300', height: '380', frameborder: '0', allowtransparency: 'true' })
+        _react2.default.createElement(_reactIframe2.default, { url: 'https://open.spotify.com/embed?uri=spotify:user:rkohr:playlist:26RcfKekMN41fKgTW0D5Hx', width: '450px', height: '450px', frameborder: '0', allowtransparency: 'true', display: 'initial', position: 'relative' })
       )
     )
   );
