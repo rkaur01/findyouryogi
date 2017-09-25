@@ -14,8 +14,8 @@ const Main = (props) => {
   const {children, handleClick, isLoggedIn} = props
 
   return (
-    <div>
-      <Link to='/'><h1>FIND YOUR YOGI</h1></Link>
+    <div style={{textAlign: "center"}}>
+      <Link to='/'><h1 style={{color: "#4286f4"}}>FIND YOUR YOGA STUDIO</h1></Link>
       <nav>
         {
           isLoggedIn
@@ -31,7 +31,7 @@ const Main = (props) => {
             </div>
         }
       </nav>
-      <hr />
+      <hr style={{borderColor: '#4286f4'}} />
       {children}
     </div>
   )

@@ -20596,6 +20596,21 @@ var AllYogis = exports.AllYogis = function (_Component) {
     value: function render() {
       var _this2 = this;
 
+      //styles
+      var imgStyle = {
+        width: 400,
+        height: 300,
+        borderRadius: 5
+      };
+
+      var navLinkStyle = {
+        padding: 15,
+        fontSize: 25,
+        textDecoration: 'none',
+        textAlign: 'center',
+        color: '#41b5f4'
+      };
+
       var yogis = this.props.yogis;
 
       if (!this.state.yogis && yogis.length) this.setState({ yogis: yogis });
@@ -20603,7 +20618,7 @@ var AllYogis = exports.AllYogis = function (_Component) {
       console.log('state is not changing, this should be equal to newYogiList ', yogiList);
       return _react2.default.createElement(
         'div',
-        null,
+        { 'class': 'container-fluid' },
         _react2.default.createElement(
           'form',
           { onSubmit: function onSubmit(evt) {
@@ -20621,24 +20636,30 @@ var AllYogis = exports.AllYogis = function (_Component) {
         ),
         _react2.default.createElement(
           'h3',
-          null,
+          { style: { textAlign: 'center', color: "#4286f4" } },
           'FEATURING'
         ),
-        yogiList && yogiList.map(function (yogi) {
-          return _react2.default.createElement(
-            _reactRouterDom.NavLink,
-            {
-              key: yogi.id,
-              activeClassName: 'active',
-              to: '/yogis/' + yogi.id },
-            _react2.default.createElement('img', { className: 'allYogis', src: yogi.imageUrl }),
-            _react2.default.createElement(
-              'p',
-              null,
-              yogi.name
-            )
-          );
-        })
+        _react2.default.createElement(
+          'div',
+          { className: 'row' },
+          yogiList && yogiList.map(function (yogi) {
+            return _react2.default.createElement(
+              _reactRouterDom.NavLink,
+              {
+                key: yogi.id,
+                activeClassName: 'active',
+                className: 'col-xs-4',
+                style: navLinkStyle,
+                to: '/yogis/' + yogi.id },
+              _react2.default.createElement('img', { style: imgStyle, src: yogi.imageUrl }),
+              _react2.default.createElement(
+                'p',
+                null,
+                yogi.name
+              )
+            );
+          })
+        )
       );
     }
   }]);
@@ -20919,14 +20940,14 @@ var Main = function Main(props) {
 
   return _react2.default.createElement(
     'div',
-    null,
+    { style: { textAlign: "center" } },
     _react2.default.createElement(
       _reactRouterDom.Link,
       { to: '/' },
       _react2.default.createElement(
         'h1',
-        null,
-        'FIND YOUR YOGI'
+        { style: { color: "#4286f4" } },
+        'FIND YOUR YOGA STUDIO'
       )
     ),
     _react2.default.createElement(
@@ -20960,7 +20981,7 @@ var Main = function Main(props) {
         )
       )
     ),
-    _react2.default.createElement('hr', null),
+    _react2.default.createElement('hr', { style: { borderColor: '#4286f4' } }),
     children
   );
 };

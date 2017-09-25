@@ -61,12 +61,30 @@ export class AllYogis extends Component {
 
 
   render(){
+    //styles
+    let imgStyle = {
+      width: 400,
+      height: 300,
+      borderRadius: 5
+    }
+
+    let navLinkStyle = {
+      padding: 15,
+      fontSize: 25,
+      textDecoration: 'none',
+      textAlign: 'center',
+      color: '#41b5f4'
+    }
+
+
+
+
     const {yogis} = this.props
     if(!this.state.yogis && yogis.length) this.setState({yogis: yogis})
     let yogiList = this.state.yogis.length ? this.state.yogis : yogis 
     console.log('state is not changing, this should be equal to newYogiList ', yogiList)
     return (
-      <div>
+      <div class="container-fluid">
         <form onSubmit= {(evt) => {
           evt.preventDefault()
           this.handleSubmit()
@@ -78,18 +96,23 @@ export class AllYogis extends Component {
             value={this.state.filter}
           />
           </form>
-        <h3>FEATURING</h3>
+        <h3 style={{textAlign: 'center', color: "#4286f4"}}>FEATURING</h3>
+        <div className="row">
         {yogiList && yogiList.map(yogi => {
           return(
             <NavLink
             key = {yogi.id}
             activeClassName="active"
+            className="col-xs-4"
+            style={navLinkStyle}
             to={`/yogis/${yogi.id}`}>
-            <img className="allYogis" src ={yogi.imageUrl}/>
+            <img style={imgStyle} src ={yogi.imageUrl}/>
             <p>{yogi.name}</p>
             </NavLink>
           )
         })}
+        </div>
+        
 
       </div>
     )
