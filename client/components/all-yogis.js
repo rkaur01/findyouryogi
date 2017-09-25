@@ -19,7 +19,7 @@ export class AllYogis extends Component {
     
     this.state = {
       yogis: [],
-      filter: 'people'
+      filter: 'type here..'
     }
 
   }
@@ -43,9 +43,6 @@ export class AllYogis extends Component {
         })
         
         this.setState({yogis:newYogiList})
-        
-        
-        
       }
     )
     .catch(err => console.log(err))
