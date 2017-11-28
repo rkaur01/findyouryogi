@@ -24,6 +24,7 @@ class Routes extends Component {
           <Switch>
             {/* Routes placed here are available to all visitors */}
             <Route exact path = '/' component={AllYogis} />
+            <Route path = '/home' component={AllYogis} />
             <Route path='/login' component={Login} />
             <Route path='/signup' component={Signup} />
             <Route exact path = '/yogis' component={AllYogis} />            

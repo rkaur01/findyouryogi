@@ -16133,6 +16133,7 @@ var Routes = function (_Component) {
             _reactRouterDom.Switch,
             null,
             _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/', component: _components.AllYogis }),
+            _react2.default.createElement(_reactRouterDom.Route, { path: '/home', component: _components.AllYogis }),
             _react2.default.createElement(_reactRouterDom.Route, { path: '/login', component: _components.Login }),
             _react2.default.createElement(_reactRouterDom.Route, { path: '/signup', component: _components.Signup }),
             _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/yogis', component: _components.AllYogis }),
